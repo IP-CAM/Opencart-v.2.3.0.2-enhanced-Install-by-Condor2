@@ -3,9 +3,9 @@
 error_reporting(E_ALL);
 
 // Check Version
-if (version_compare(phpversion(), '7.0', '<') == true) {
-	exit('PHP7.0+ Required');
-}
+ if (version_compare(phpversion(), '7.3.0', '<')) { 
+ 	exit('PHP7.3+ Required'); 
+ }
 
 // Magic Quotes Fix
 if (ini_get('magic_quotes_gpc')) {

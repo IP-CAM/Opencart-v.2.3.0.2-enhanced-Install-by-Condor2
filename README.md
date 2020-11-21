@@ -7,7 +7,7 @@ OpenCart is a free open source ecommerce platform for online merchants. OpenCart
 ## Info
 
 - Bug fixes added
-- Support PHP 7.0 and above
+- Support PHP 7.3 and above
 - OpenBay was removed
 - Integrated Currency module from Master Branch - 3.1.0.0b
 - Integrated Timezone from Master Branch - 3.1.0.0b
@@ -16,6 +16,7 @@ OpenCart is a free open source ecommerce platform for online merchants. OpenCart
 - Added vendor folder for some payments
 - Bootstrap 3.4.1
 - jQuery 3.5.1
+- Removed deprecated Klarna Payment
 
 
 ## Language patch for non English
