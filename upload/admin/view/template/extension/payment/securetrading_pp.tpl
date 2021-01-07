@@ -34,6 +34,15 @@
               <?php } ?>
             </div>
           </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="securetrading_pp_version"><span data-toggle="tooltip" title="<?php echo $help_version; ?>"><?php echo $entry_version; ?></span></label>
+            <div class="col-sm-10">
+              <input type="text" name="securetrading_pp_version" value="<?php echo $securetrading_pp_version; ?>" placeholder="<?php echo $entry_version; ?>" id="securetrading_pp_version" class="form-control" />
+              <?php if ($error_version) { ?>
+              <div class="text-danger"><?php echo $error_version; ?></div>
+              <?php } ?>
+            </div>
+          </div>
           <div class="form-group">
             <label class="col-sm-2 control-label" for="securetrading_pp_username"><?php echo $entry_username; ?></label>
             <div class="col-sm-10">

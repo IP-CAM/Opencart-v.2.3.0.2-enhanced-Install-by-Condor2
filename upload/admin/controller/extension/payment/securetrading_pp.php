@@ -24,6 +24,12 @@ class ControllerExtensionPaymentSecureTradingPp extends Controller {
 			$data['securetrading_pp_site_reference'] = $this->config->get('securetrading_pp_site_reference');
 		}
 
+		if (isset($this->request->post['securetrading_pp_version'])) {
+			$data['securetrading_pp_version'] = $this->request->post['securetrading_pp_version'];
+		} else {
+			$data['securetrading_pp_version'] = $this->config->get('securetrading_pp_version');
+		}
+
 		if (isset($this->request->post['securetrading_pp_username'])) {
 			$data['securetrading_pp_username'] = $this->request->post['securetrading_pp_username'];
 		} else {
@@ -173,6 +179,7 @@ class ControllerExtensionPaymentSecureTradingPp extends Controller {
 		$data['heading_title'] = $this->language->get('heading_title');
 
 		$data['entry_site_reference'] = $this->language->get('entry_site_reference');
+		$data['entry_version'] = $this->language->get('entry_version');
 		$data['entry_username'] = $this->language->get('entry_username');
 		$data['entry_password'] = $this->language->get('entry_password');
 		$data['entry_security_status'] = $this->language->get('entry_security_status');
@@ -202,6 +209,7 @@ class ControllerExtensionPaymentSecureTradingPp extends Controller {
 		$data['text_process_immediately'] = $this->language->get('text_process_immediately');
 		$data['text_wait_x_days'] = $this->language->get('text_wait_x_days');
 
+		$data['help_version'] = $this->language->get('help_version');
 		$data['help_username'] = $this->language->get('help_username');
 		$data['help_password'] = $this->language->get('help_password');
 		$data['help_total'] = $this->language->get('help_total');
@@ -219,6 +227,12 @@ class ControllerExtensionPaymentSecureTradingPp extends Controller {
 			$data['error_site_reference'] = $this->error['site_reference'];
 		} else {
 			$data['error_site_reference'] = '';
+		}
+
+		if (isset($this->error['version'])) {
+			$data['error_version'] = $this->error['version'];
+		} else {
+			$data['error_version'] = '';
 		}
 
 		if (isset($this->error['cards_accepted'])) {
@@ -531,6 +545,10 @@ class ControllerExtensionPaymentSecureTradingPp extends Controller {
 
 		if (!$this->request->post['securetrading_pp_site_reference']) {
 			$this->error['site_reference'] = $this->language->get('error_site_reference');
+		}
+
+		if (!$this->request->post['securetrading_pp_version']) {
+			$this->error['version'] = $this->language->get('error_version');
 		}
 
 		if (empty($this->request->post['securetrading_pp_cards_accepted'])) {

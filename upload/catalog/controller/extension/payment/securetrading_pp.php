@@ -11,6 +11,7 @@ class ControllerExtensionPaymentSecureTradingPp extends Controller {
 		if ($order_info) {
 			$data['order_info'] = $order_info;
 			$data['site_reference'] = $this->config->get('securetrading_pp_site_reference');
+			$data['version'] = $this->config->get('securetrading_pp_version');
 			$data['parent_css'] = $this->config->get('securetrading_pp_parent_css');
 			$data['child_css'] = $this->config->get('securetrading_pp_child_css');
 			$data['currency'] = $order_info['currency_code'];

@@ -5,7 +5,7 @@
         <input type="hidden" name="sitereference" value="<?php echo $site_reference; ?>" />
         <input type="hidden" name="currencyiso3a" value="<?php echo $currency; ?>" />
         <input type="hidden" name="mainamount" value="<?php echo $total; ?>" />
-        <input type="hidden" name="version" value="1" />
+        <input type="hidden" name="version" value="<?php echo $version; ?>" />
         <input type="hidden" name="orderreference" value="<?php echo $order_info['order_id']; ?>" />
         <input type="hidden" name="settlestatus" value="<?php echo $settle_status; ?>" />
         <input type="hidden" name="settleduedate" value="<?php echo $settle_due_date; ?>" />
