@@ -155,15 +155,7 @@ class ControllerCommonColumnLeft extends Controller {
 	
 			// Extension
 			$extension = array();
-			/*
-			if ($this->user->hasPermission('access', 'extension/store')) {		
-				$extension[] = array(
-					'name'	   => $this->language->get('text_store'),
-					'href'     => $this->url->link('extension/store', 'token=' . $this->session->data['token'], true),
-					'children' => array()		
-				);					
-			}
-			*/
+
 			if ($this->user->hasPermission('access', 'extension/installer')) {		
 				$extension[] = array(
 					'name'	   => $this->language->get('text_installer'),
@@ -224,32 +216,7 @@ class ControllerCommonColumnLeft extends Controller {
 					'children' => array()		
 				);	
 			}
-			/*
-			if ($this->user->hasPermission('access', 'design/menu')) {
-				$design[] = array(
-					'name'	   => $this->language->get('text_menu'),
-					'href'     => $this->url->link('design/menu', 'token=' . $this->session->data['token'], true),
-					'children' => array()		
-				);	
-			}
-			*/	
-			/*	
-			if ($this->user->hasPermission('access', 'design/theme')) {	
-				$design[] = array(
-					'name'	   => $this->language->get('text_theme'),
-					'href'     => $this->url->link('design/theme', 'token=' . $this->session->data['token'], true),
-					'children' => array()		
-				);	
-			}
-			
-			if ($this->user->hasPermission('access', 'design/language')) {
-				$design[] = array(
-					'name'	   => $this->language->get('text_translation'),
-					'href'     => $this->url->link('design/language', 'token=' . $this->session->data['token'], true),
-					'children' => array()		
-				);	
-			}
-			*/	
+
 			if ($this->user->hasPermission('access', 'design/banner')) {
 				$design[] = array(
 					'name'	   => $this->language->get('text_banner'),
