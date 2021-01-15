@@ -124,7 +124,7 @@ class ControllerStartupStartup extends Controller {
 
 		// Tracking Code
 		if (isset($this->request->get['tracking'])) {
-			setcookie('tracking', ['expires' => time() + 3600 * 24 * 1000, 'path' => '/', 'samesite' => 'None', 'secure' => true]);
+			setcookie('tracking', $this->request->get['tracking'], ['expires' => time() + 3600 * 24 * 1000, 'path' => '/', 'samesite' => 'None', 'secure' => true]);
 
 			$this->db->query("UPDATE `" . DB_PREFIX . "marketing` SET clicks = (clicks + 1) WHERE code = '" . $this->db->escape($this->request->get['tracking']) . "'");
 		}		
