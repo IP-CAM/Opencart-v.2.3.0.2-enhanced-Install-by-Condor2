@@ -21,27 +21,5 @@ class ControllerEventTheme extends Controller {
 		} else {
 			$view = 'default/template/' . $view;
 		}
-		/*			
-		// If there is a theme override we should get it				
-		$this->load->model('design/theme');
-		
-		$theme_info = $this->model_design_theme->getTheme($view, $theme);
-		
-		if ($theme_info) {
-			extract($data);
-
-			ob_start();
-
-			eval('?>' . html_entity_decode($theme_info['code']));
-
-			$output = ob_get_clean();
-		} else {
-			if (is_file(DIR_TEMPLATE . $theme . '/template/' . $view . '.tpl')) {
-				$view = $theme . '/template/' . $view;
-			} else {
-				$view = 'default/template/' . $view;
-			}		
-		}
-		*/
 	}
 }
