@@ -7453,7 +7453,7 @@ var Buttons_Buttons = /*#__PURE__*/function () {
               }).render());
             });
             $dropdown.find('input[type=color]').each(function (idx, item) {
-              external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default()(item).on('change', function () {
+              external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default()(item).change(function () {
                 var $chip = $dropdown.find('#' + external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default()(this).data('event')).find('.note-color-btn').first();
                 var color = this.value.toUpperCase();
                 $chip.css('background-color', color).attr('aria-label', color).attr('data-value', color).attr('data-original-title', color);
