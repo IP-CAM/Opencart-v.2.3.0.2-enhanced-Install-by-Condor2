@@ -13,7 +13,6 @@ OpenCart is a free open source ecommerce platform for online merchants. OpenCart
 - Option to show and hide/reveal password. Code used from <a href="https://github.com/opencartbrasil/opencartbrasil">Opencart Brasil</a>
 - Integrated Cron module from Master Branch - 3.1.0.0b
 - Vendor folder for some payments
-- SameSite Cookies code from <a href="https://forum.opencart.com/viewtopic.php?f=190&t=216579&start=20#p796020">here</a>
 
 ## Updates
 - Bootstrap 3.4.1
