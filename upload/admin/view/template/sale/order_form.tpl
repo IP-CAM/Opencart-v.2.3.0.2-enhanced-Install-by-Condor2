@@ -1737,7 +1737,7 @@ $('#button-voucher-add').on('click', function() {
 });
 
 $('#cart').on('click', '.btn-danger', function() {
-	var node = this;
+	var element = this;
 
 	$.ajax({
 		url: '<?php echo $catalog; ?>index.php?route=api/cart/remove&token=' + token + '&store_id=' + $('select[name=\'store_id\'] option:selected').val(),
@@ -1746,10 +1746,10 @@ $('#cart').on('click', '.btn-danger', function() {
 		dataType: 'json',
 		crossDomain: true,
 		beforeSend: function() {
-			$(node).button('loading');
+			$(element).button('loading');
 		},
 		complete: function() {
-			$(node).button('reset');
+			$(element).button('reset');
 		},
 		success: function(json) {
 			$('.alert, .text-danger').remove();
@@ -1769,7 +1769,7 @@ $('#cart').on('click', '.btn-danger', function() {
 });
 
 $('#cart').on('click', '.btn-primary', function() {
-    var node = this;
+    var element = this;
 
     // Refresh products, vouchers and totals
     $.ajax({
@@ -1779,10 +1779,10 @@ $('#cart').on('click', '.btn-primary', function() {
         dataType: 'json',
         crossDomain: true,
         beforeSend: function() {
-            $(node).button('loading');
+            $(element).button('loading');
         },
         complete: function() {
-            $(node).button('reset');
+            $(element).button('reset');
         },
         success: function(json) {
             $('.alert, .text-danger').remove();
@@ -2444,7 +2444,7 @@ $('#button-save').on('click', function() {
 });
 
 $('#content').on('click', 'button[id^=\'button-upload\'], button[id^=\'button-custom-field\'], button[id^=\'button-payment-custom-field\'], button[id^=\'button-shipping-custom-field\']', function() {
-	var node = this;
+	var element = this;
 
 	$('#form-upload').remove();
 
@@ -2469,16 +2469,16 @@ $('#content').on('click', 'button[id^=\'button-upload\'], button[id^=\'button-cu
 				contentType: false,
 				processData: false,
 				beforeSend: function() {
-					$(node).button('loading');
+					$(element).button('loading');
 				},
 				complete: function() {
-					$(node).button('reset');
+					$(element).button('reset');
 				},
 				success: function(json) {
-					$(node).parent().find('.text-danger').remove();
+					$(element).parent().find('.text-danger').remove();
 
 					if (json['error']) {
-						$(node).parent().find('input[type=\'hidden\']').after('<div class="text-danger">' + json['error'] + '</div>');
+						$(element).parent().find('input[type=\'hidden\']').after('<div class="text-danger">' + json['error'] + '</div>');
 					}
 
 					if (json['success']) {
@@ -2486,7 +2486,7 @@ $('#content').on('click', 'button[id^=\'button-upload\'], button[id^=\'button-cu
 					}
 
 					if (json['code']) {
-						$(node).parent().find('input[type=\'hidden\']').val(json['code']);
+						$(element).parent().find('input[type=\'hidden\']').val(json['code']);
 					}
 				},
 				error: function(xhr, ajaxOptions, thrownError) {

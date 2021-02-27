@@ -66,16 +66,16 @@ $('select[name="type"]').trigger('change');
 $('#extension').on('click', '.btn-success', function(e) {
 	e.preventDefault();
 	
-	var node = this;
+	var element = this;
 
 	$.ajax({
-		url: $(node).attr('href'),
+		url: $(element).attr('href'),
 		dataType: 'html',
 		beforeSend: function() {
-			$(node).button('loading');
+			$(element).button('loading');
 		},
 		complete: function() {
-			$(node).button('reset');
+			$(element).button('reset');
 		},
 		success: function(html) {
 			$('#extension').html(html);
@@ -90,16 +90,16 @@ $('#extension').on('click', '.btn-danger, .btn-warning', function(e) {
 	e.preventDefault();
 	
 	if (confirm('<?php echo $text_confirm; ?>')) {
-		var node = this;
+		var element = this;
 	
 		$.ajax({
-			url: $(node).attr('href'),
+			url: $(element).attr('href'),
 			dataType: 'html',
 			beforeSend: function() {
-				$(node).button('loading');
+				$(element).button('loading');
 			},
 			complete: function() {
-				$(node).button('reset');
+				$(element).button('reset');
 			},
 			success: function(html) {
 				$('#extension').html(html);

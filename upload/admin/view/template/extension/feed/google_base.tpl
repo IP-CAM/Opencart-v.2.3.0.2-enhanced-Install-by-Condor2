@@ -161,7 +161,7 @@ $('#button-category-add').on('click', function() {
 });
 
 $('#category').on('click', '.btn-danger', function() {
-	var node = this;
+	var element = this;
 
 	$.ajax({
 		url: 'index.php?route=extension/feed/google_base/removecategory&token=<?php echo $token; ?>',
@@ -170,10 +170,10 @@ $('#category').on('click', '.btn-danger', function() {
 		dataType: 'json',
 		crossDomain: true,
 		beforeSend: function() {
-			$(node).button('loading');
+			$(element).button('loading');
 		},
 		complete: function() {
-			$(node).button('reset');
+			$(element).button('reset');
 		},
 		success: function(json) {
 			$('.alert').remove();
