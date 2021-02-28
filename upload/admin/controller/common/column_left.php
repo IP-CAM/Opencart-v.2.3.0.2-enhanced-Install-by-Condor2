@@ -248,7 +248,7 @@ class ControllerCommonColumnLeft extends Controller {
 			
 			if ($this->user->hasPermission('access', 'sale/recurring')) {	
 				$sale[] = array(
-					'name'	   => $this->language->get('text_recurring'),
+					'name'	   => $this->language->get('text_order_recurring'),
 					'href'     => $this->url->link('sale/recurring', 'token=' . $this->session->data['token'], true),
 					'children' => array()		
 				);	

@@ -10,7 +10,6 @@ OpenCart is a free open source ecommerce platform for online merchants. OpenCart
 - Bug fixes found on opencart forum and github
 - Currency module from Master Branch - 3.1.0.0b
 - Timezone from Master Branch - 3.1.0.0b
-- Option to show and hide/reveal password. Code used from <a href="https://github.com/opencartbrasil/opencartbrasil">Opencart Brasil</a>
 - Integrated Cron module from Master Branch - 3.1.0.0b
 - Vendor folder for some payments
 
@@ -21,6 +20,11 @@ OpenCart is a free open source ecommerce platform for online merchants. OpenCart
 ## Removed
 - OpenBay
 - Deprecated Klarna Payment
+- FTP settings
+
+## Features ##
+- Option to show and hide/reveal password. Code used from <a href="https://github.com/opencartbrasil/opencartbrasil">Opencart Brasil</a>
+- Ocmod installer was changed like in 3.0.x.x but with upload restrictions removed. PHP and SQL functions was added from this <a href="https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=31227">extension</a>
 
 ## Compatibility
 - PHP 7.3 and above
