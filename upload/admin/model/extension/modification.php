@@ -8,6 +8,10 @@ class ModelExtensionModification extends Model {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "modification WHERE modification_id = '" . (int)$modification_id . "'");
 	}
 
+	public function deleteModificationsByExtensionInstallId($extension_install_id) {
+		$this->db->query("DELETE FROM `" . DB_PREFIX . "modification` WHERE `extension_install_id` = '" . (int)$extension_install_id . "'");
+	}
+
 	public function enableModification($modification_id) {
 		$this->db->query("UPDATE " . DB_PREFIX . "modification SET status = '1' WHERE modification_id = '" . (int)$modification_id . "'");
 	}
