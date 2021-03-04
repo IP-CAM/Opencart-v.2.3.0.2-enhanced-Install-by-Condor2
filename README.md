@@ -12,6 +12,8 @@ OpenCart is a free open source ecommerce platform for online merchants. OpenCart
 - Timezone from Master Branch - 3.1.0.0b
 - Integrated Cron module from Master Branch - 3.1.0.0b
 - Vendor folder for some payments
+- Filter on Zone List - 4.0.0.0_b
+- Filter on Country List - 4.0.0.0_b
 
 ## Updates
 - Bootstrap 3.4.1

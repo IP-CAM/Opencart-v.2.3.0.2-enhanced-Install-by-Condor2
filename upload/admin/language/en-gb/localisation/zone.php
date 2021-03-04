@@ -7,7 +7,6 @@ $_['text_success']           = 'Success: You have modified zones!';
 $_['text_list']              = 'Zone List';
 $_['text_add']               = 'Add Zone';
 $_['text_edit']              = 'Edit Zone';
-$_['text_filter']            = 'Filter';
 
 // Column
 $_['column_name']            = 'Zone Name';

@@ -26,6 +26,18 @@ class ControllerLocalisationCountry extends Controller {
 
 			$url = '';
 
+			if (isset($this->request->get['filter_name'])) {
+				$url .= '&filter_name=' . urlencode(html_entity_decode($this->request->get['filter_name'], ENT_QUOTES, 'UTF-8'));
+			}
+
+			if (isset($this->request->get['filter_iso_code_2'])) {
+				$url .= '&filter_iso_code_2=' . urlencode(html_entity_decode($this->request->get['filter_iso_code_2'], ENT_QUOTES, 'UTF-8'));
+			}
+
+			if (isset($this->request->get['filter_iso_code_3'])) {
+				$url .= '&filter_iso_code_3=' . urlencode(html_entity_decode($this->request->get['filter_iso_code_3'], ENT_QUOTES, 'UTF-8'));
+			}
+
 			if (isset($this->request->get['sort'])) {
 				$url .= '&sort=' . $this->request->get['sort'];
 			}
@@ -57,6 +69,18 @@ class ControllerLocalisationCountry extends Controller {
 			$this->session->data['success'] = $this->language->get('text_success');
 
 			$url = '';
+
+			if (isset($this->request->get['filter_name'])) {
+				$url .= '&filter_name=' . urlencode(html_entity_decode($this->request->get['filter_name'], ENT_QUOTES, 'UTF-8'));
+			}
+
+			if (isset($this->request->get['filter_iso_code_2'])) {
+				$url .= '&filter_iso_code_2=' . urlencode(html_entity_decode($this->request->get['filter_iso_code_2'], ENT_QUOTES, 'UTF-8'));
+			}
+
+			if (isset($this->request->get['filter_iso_code_3'])) {
+				$url .= '&filter_iso_code_3=' . urlencode(html_entity_decode($this->request->get['filter_iso_code_3'], ENT_QUOTES, 'UTF-8'));
+			}
 
 			if (isset($this->request->get['sort'])) {
 				$url .= '&sort=' . $this->request->get['sort'];
@@ -92,6 +116,18 @@ class ControllerLocalisationCountry extends Controller {
 
 			$url = '';
 
+			if (isset($this->request->get['filter_name'])) {
+				$url .= '&filter_name=' . urlencode(html_entity_decode($this->request->get['filter_name'], ENT_QUOTES, 'UTF-8'));
+			}
+
+			if (isset($this->request->get['filter_iso_code_2'])) {
+				$url .= '&filter_iso_code_2=' . urlencode(html_entity_decode($this->request->get['filter_iso_code_2'], ENT_QUOTES, 'UTF-8'));
+			}
+
+			if (isset($this->request->get['filter_iso_code_3'])) {
+				$url .= '&filter_iso_code_3=' . urlencode(html_entity_decode($this->request->get['filter_iso_code_3'], ENT_QUOTES, 'UTF-8'));
+			}
+
 			if (isset($this->request->get['sort'])) {
 				$url .= '&sort=' . $this->request->get['sort'];
 			}
@@ -111,6 +147,24 @@ class ControllerLocalisationCountry extends Controller {
 	}
 
 	protected function getList() {
+		if (isset($this->request->get['filter_name'])) {
+			$filter_name = (string)$this->request->get['filter_name'];
+		} else {
+			$filter_name = '';
+		}
+
+		if (isset($this->request->get['filter_iso_code_2'])) {
+			$filter_iso_code_2 = (string)$this->request->get['filter_iso_code_2'];
+		} else {
+			$filter_iso_code_2 = '';
+		}
+
+		if (isset($this->request->get['filter_iso_code_3'])) {
+			$filter_iso_code_3 = (string)$this->request->get['filter_iso_code_3'];
+		} else {
+			$filter_iso_code_3 = '';
+		}
+
 		if (isset($this->request->get['sort'])) {
 			$sort = $this->request->get['sort'];
 		} else {
@@ -130,6 +184,18 @@ class ControllerLocalisationCountry extends Controller {
 		}
 
 		$url = '';
+
+		if (isset($this->request->get['filter_name'])) {
+			$url .= '&filter_name=' . urlencode(html_entity_decode($this->request->get['filter_name'], ENT_QUOTES, 'UTF-8'));
+		}
+
+		if (isset($this->request->get['filter_iso_code_2'])) {
+			$url .= '&filter_iso_code_2=' . urlencode(html_entity_decode($this->request->get['filter_iso_code_2'], ENT_QUOTES, 'UTF-8'));
+		}
+
+		if (isset($this->request->get['filter_iso_code_3'])) {
+			$url .= '&filter_iso_code_3=' . urlencode(html_entity_decode($this->request->get['filter_iso_code_3'], ENT_QUOTES, 'UTF-8'));
+		}
 
 		if (isset($this->request->get['sort'])) {
 			$url .= '&sort=' . $this->request->get['sort'];
@@ -161,13 +227,16 @@ class ControllerLocalisationCountry extends Controller {
 		$data['countries'] = array();
 
 		$filter_data = array(
-			'sort'  => $sort,
-			'order' => $order,
-			'start' => ($page - 1) * $this->config->get('config_limit_admin'),
-			'limit' => $this->config->get('config_limit_admin')
+			'filter_name'       => $filter_name,
+			'filter_iso_code_2' => $filter_iso_code_2,
+			'filter_iso_code_3' => $filter_iso_code_3,
+			'sort'              => $sort,
+			'order'             => $order,
+			'start'             => ($page - 1) * $this->config->get('config_limit_admin'),
+			'limit'             => $this->config->get('config_limit_admin')
 		);
 
-		$country_total = $this->model_localisation_country->getTotalCountries();
+		$country_total = $this->model_localisation_country->getTotalCountries($filter_data);
 
 		$results = $this->model_localisation_country->getCountries($filter_data);
 
@@ -192,9 +261,16 @@ class ControllerLocalisationCountry extends Controller {
 		$data['column_iso_code_3'] = $this->language->get('column_iso_code_3');
 		$data['column_action'] = $this->language->get('column_action');
 
+		$data['entry_name'] = $this->language->get('entry_name');
+		$data['entry_iso_code_2'] = $this->language->get('entry_iso_code_2');
+		$data['entry_iso_code_3'] = $this->language->get('entry_iso_code_3');
+
 		$data['button_add'] = $this->language->get('button_add');
 		$data['button_edit'] = $this->language->get('button_edit');
 		$data['button_delete'] = $this->language->get('button_delete');
+		$data['button_filter'] = $this->language->get('button_filter');
+
+		$data['token'] = $this->session->data['token'];
 
 		if (isset($this->error['warning'])) {
 			$data['error_warning'] = $this->error['warning'];
@@ -218,6 +294,18 @@ class ControllerLocalisationCountry extends Controller {
 
 		$url = '';
 
+		if (isset($this->request->get['filter_name'])) {
+			$url .= '&filter_name=' . urlencode(html_entity_decode($this->request->get['filter_name'], ENT_QUOTES, 'UTF-8'));
+		}
+
+		if (isset($this->request->get['filter_iso_code_2'])) {
+			$url .= '&filter_iso_code_2=' . urlencode(html_entity_decode($this->request->get['filter_iso_code_2'], ENT_QUOTES, 'UTF-8'));
+		}
+
+		if (isset($this->request->get['filter_iso_code_3'])) {
+			$url .= '&filter_iso_code_3=' . urlencode(html_entity_decode($this->request->get['filter_iso_code_3'], ENT_QUOTES, 'UTF-8'));
+		}
+
 		if ($order == 'ASC') {
 			$url .= '&order=DESC';
 		} else {
@@ -233,6 +321,18 @@ class ControllerLocalisationCountry extends Controller {
 		$data['sort_iso_code_3'] = $this->url->link('localisation/country', 'token=' . $this->session->data['token'] . '&sort=iso_code_3' . $url, true);
 
 		$url = '';
+
+		if (isset($this->request->get['filter_name'])) {
+			$url .= '&filter_name=' . urlencode(html_entity_decode($this->request->get['filter_name'], ENT_QUOTES, 'UTF-8'));
+		}
+
+		if (isset($this->request->get['filter_iso_code_2'])) {
+			$url .= '&filter_iso_code_2=' . urlencode(html_entity_decode($this->request->get['filter_iso_code_2'], ENT_QUOTES, 'UTF-8'));
+		}
+
+		if (isset($this->request->get['filter_iso_code_3'])) {
+			$url .= '&filter_iso_code_3=' . urlencode(html_entity_decode($this->request->get['filter_iso_code_3'], ENT_QUOTES, 'UTF-8'));
+		}
 
 		if (isset($this->request->get['sort'])) {
 			$url .= '&sort=' . $this->request->get['sort'];
@@ -251,6 +351,10 @@ class ControllerLocalisationCountry extends Controller {
 		$data['pagination'] = $pagination->render();
 
 		$data['results'] = sprintf($this->language->get('text_pagination'), ($country_total) ? (($page - 1) * $this->config->get('config_limit_admin')) + 1 : 0, ((($page - 1) * $this->config->get('config_limit_admin')) > ($country_total - $this->config->get('config_limit_admin'))) ? $country_total : ((($page - 1) * $this->config->get('config_limit_admin')) + $this->config->get('config_limit_admin')), $country_total, ceil($country_total / $this->config->get('config_limit_admin')));
+
+		$data['filter_name'] = $filter_name;
+		$data['filter_iso_code_2'] = $filter_iso_code_2;
+		$data['filter_iso_code_3'] = $filter_iso_code_3;
 
 		$data['sort'] = $sort;
 		$data['order'] = $order;
@@ -296,6 +400,18 @@ class ControllerLocalisationCountry extends Controller {
 		}
 
 		$url = '';
+
+		if (isset($this->request->get['filter_name'])) {
+			$url .= '&filter_name=' . urlencode(html_entity_decode($this->request->get['filter_name'], ENT_QUOTES, 'UTF-8'));
+		}
+
+		if (isset($this->request->get['filter_iso_code_2'])) {
+			$url .= '&filter_iso_code_2=' . urlencode(html_entity_decode($this->request->get['filter_iso_code_2'], ENT_QUOTES, 'UTF-8'));
+		}
+
+		if (isset($this->request->get['filter_iso_code_3'])) {
+			$url .= '&filter_iso_code_3=' . urlencode(html_entity_decode($this->request->get['filter_iso_code_3'], ENT_QUOTES, 'UTF-8'));
+		}
 
 		if (isset($this->request->get['sort'])) {
 			$url .= '&sort=' . $this->request->get['sort'];
