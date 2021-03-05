@@ -151,3 +151,46 @@ $_['error_upload_7']                = 'Warning: Failed to write file to disk!';
 $_['error_upload_8']                = 'Warning: File upload stopped by extension!';
 $_['error_upload_999']              = 'Warning: No error code available!';
 $_['error_curl']                    = 'CURL: Error Code(%s): %s';
+
+/* When doing translations only include the matching language code */
+
+// Summernote
+//$_['summernote']                    = 'ar-AR';
+//$_['summernote']                    = 'bg-BG';
+//$_['summernote']                    = 'ca-ES';
+//$_['summernote']                    = 'cs-CZ';
+//$_['summernote']                    = 'da-DK';
+//$_['summernote']                    = 'de-DE';
+//$_['summernote']                    = 'es-ES';
+//$_['summernote']                    = 'es-EU';
+//$_['summernote']                    = 'fa-IR';
+//$_['summernote']                    = 'fi-FI';
+//$_['summernote']                    = 'fr-FR';
+//$_['summernote']                    = 'he-IL';
+//$_['summernote']                    = 'hu-HU';
+//$_['summernote']                    = 'hr-HR';
+//$_['summernote']                    = 'gl-ES';
+//$_['summernote']                    = 'id-ID';
+//$_['summernote']                    = 'it-IT';
+//$_['summernote']                    = 'ja-JP';
+//$_['summernote']                    = 'ko-KR';
+//$_['summernote']                    = 'lt-LT';
+//$_['summernote']                    = 'lt-LV';
+//$_['summernote']                    = 'nb-NO';
+//$_['summernote']                    = 'nl-NL';
+//$_['summernote']                    = 'pl-PL';
+//$_['summernote']                    = 'pt-BR';
+//$_['summernote']                    = 'pt-PT';
+$_['summernote']                    = 'ro-RO';
+//$_['summernote']                    = 'ru-RU';
+//$_['summernote']                    = 'sk-SK';
+//$_['summernote']                    = 'sl-SI';
+//$_['summernote']                    = 'sr-RS-Latin';
+//$_['summernote']                    = 'sr-RS';
+//$_['summernote']                    = 'sv-SE';
+//$_['summernote']                    = 'th-TH';
+//$_['summernote']                    = 'tr-TR';
+//$_['summernote']                    = 'uk-UA';
+//$_['summernote']                    = 'vi-VN';
+//$_['summernote']                    = 'zh-CN';
+//$_['summernote']                    = 'zh-TW';
