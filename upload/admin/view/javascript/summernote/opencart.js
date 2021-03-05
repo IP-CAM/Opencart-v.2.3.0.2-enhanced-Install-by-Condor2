@@ -41,18 +41,18 @@ $(document).ready(function() {
 					['add', ['addRowDown', 'addRowUp', 'addColLeft', 'addColRight']],
 					['delete', ['deleteRow', 'deleteCol', 'deleteTable']]
 				],
-			},			
+			},
 			buttons: {
     			image: function() {
 					var ui = $.summernote.ui;
-							
+
 					// create button
 					var button = ui.button({
 						contents: '<i class="note-icon-picture" />',
 						tooltip: $.summernote.lang[$.summernote.options.lang].image.image,
 						click: function () {
 							$('#modal-image').remove();
-							
+
 							$.ajax({
 								url: 'index.php?route=common/filemanager&token=' + getURLVar('token'),
 								dataType: 'html',
@@ -66,12 +66,12 @@ $(document).ready(function() {
 								},
 								success: function(html) {
 									$('body').append('<div id="modal-image" class="modal">' + html + '</div>');
-									
+
 									$('#modal-image').modal('show');
-									
+
 									$('#modal-image').delegate('a.thumbnail', 'click', function(e) {
 										e.preventDefault();
-										
+
 										$(element).summernote('insertImage', $(this).attr('href'));
 																	
 										$('#modal-image').modal('hide');
@@ -80,7 +80,7 @@ $(document).ready(function() {
 							});						
 						}
 					});
-				
+
 					return button.render();
 				}
   			}
