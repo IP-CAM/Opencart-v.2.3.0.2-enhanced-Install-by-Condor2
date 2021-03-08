@@ -67,6 +67,7 @@ class ControllerExtensionInstaller extends Controller {
 		$data['heading_title'] = $this->language->get('heading_title');
 
 		$data['text_no_results'] = $this->language->get('text_no_results');
+		$data['text_loading'] = $this->language->get('text_loading');
 
 		$data['column_filename'] = $this->language->get('column_filename');
 		$data['column_date_added'] = $this->language->get('column_date_added');

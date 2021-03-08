@@ -12,7 +12,7 @@ class ModelUserApi extends Model {
 				}
 			}
 		}
-		
+
 		return $api_id;
 	}
 
