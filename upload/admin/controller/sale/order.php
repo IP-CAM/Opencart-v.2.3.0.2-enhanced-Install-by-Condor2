@@ -485,6 +485,8 @@ class ControllerSaleOrder extends Controller {
 		$data['tab_voucher'] = $this->language->get('tab_voucher');
 		$data['tab_total'] = $this->language->get('tab_total');
 
+		$data['token'] = $this->session->data['token'];
+
 		$url = '';
 
 		if (isset($this->request->get['filter_order_id'])) {
@@ -540,8 +542,6 @@ class ControllerSaleOrder extends Controller {
 		);
 
 		$data['cancel'] = $this->url->link('sale/order', 'token=' . $this->session->data['token'] . $url, true);
-
-		$data['token'] = $this->session->data['token'];
 
 		if (isset($this->request->get['order_id'])) {
 			$order_info = $this->model_sale_order->getOrder($this->request->get['order_id']);
