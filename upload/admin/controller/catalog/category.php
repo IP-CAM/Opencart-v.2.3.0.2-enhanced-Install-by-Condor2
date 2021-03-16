@@ -295,6 +295,12 @@ class ControllerCatalogCategory extends Controller {
 	}
 
 	protected function getForm() {
+		$this->document->addStyle('view/javascript/summernote/summernote.min.css');
+
+		$this->document->addScript('view/javascript/summernote/summernote.min.js');
+		$this->document->addScript('view/javascript/summernote/summernote-image-attributes.js');
+		$this->document->addScript('view/javascript/summernote/opencart.js');
+
 		$data['heading_title'] = $this->language->get('heading_title');
 
 		$data['text_form'] = !isset($this->request->get['category_id']) ? $this->language->get('text_add') : $this->language->get('text_edit');

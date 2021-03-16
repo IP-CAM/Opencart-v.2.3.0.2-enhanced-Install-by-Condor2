@@ -3,6 +3,12 @@ class ControllerExtensionModuleHTML extends Controller {
 	private $error = array();
 
 	public function index() {
+		$this->document->addStyle('view/javascript/summernote/summernote.min.css');
+
+		$this->document->addScript('view/javascript/summernote/summernote.min.js');
+		$this->document->addScript('view/javascript/summernote/summernote-image-attributes.js');
+		$this->document->addScript('view/javascript/summernote/opencart.js');
+
 		$this->load->language('extension/module/html');
 
 		$this->document->setTitle($this->language->get('heading_title'));
