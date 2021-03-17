@@ -298,7 +298,9 @@ class ControllerCatalogCategory extends Controller {
 		$this->document->addStyle('view/javascript/summernote/summernote.min.css');
 
 		$this->document->addScript('view/javascript/summernote/summernote.min.js');
+		$this->document->addScript('view/javascript/summernote/lang/summernote/summernote-' . $this->language->get('summernote') . '.js');
 		$this->document->addScript('view/javascript/summernote/summernote-image-attributes.js');
+		$this->document->addScript('view/javascript/summernote/lang/image-attributes/'. $this->language->get('summernote') . '.js');
 		$this->document->addScript('view/javascript/summernote/opencart.js');
 
 		$data['heading_title'] = $this->language->get('heading_title');
@@ -410,6 +412,8 @@ class ControllerCatalogCategory extends Controller {
 		$this->load->model('localisation/language');
 
 		$data['languages'] = $this->model_localisation_language->getLanguages();
+
+		$data['lang'] = $this->language->get('summernote');
 
 		if (isset($this->request->post['category_description'])) {
 			$data['category_description'] = $this->request->post['category_description'];

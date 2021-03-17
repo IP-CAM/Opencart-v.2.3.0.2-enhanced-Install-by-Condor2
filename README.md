@@ -52,6 +52,11 @@ $_['text_cron']                      = 'Cron Jobs';
 
 - Copy <b>cron.php from admin/language/en-gb/extension</b> in the same location of your language.
 
+<b>Multilanguage Summernote</b>
+- Edit <b>admin/language/your_language/xx-yy.php</b> and add this value:
+
+$_['summernote']                    = 'xx-YY';
+
 ## Patching standard version of Opencart 2.3.0.2
 
 <b>Cron Module</b>

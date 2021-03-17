@@ -6,7 +6,9 @@ class ControllerMarketingContact extends Controller {
 		$this->document->addStyle('view/javascript/summernote/summernote.min.css');
 
 		$this->document->addScript('view/javascript/summernote/summernote.min.js');
+		$this->document->addScript('view/javascript/summernote/lang/summernote/summernote-' . $this->language->get('summernote') . '.js');
 		$this->document->addScript('view/javascript/summernote/summernote-image-attributes.js');
+		$this->document->addScript('view/javascript/summernote/lang/image-attributes/'. $this->language->get('summernote') . '.js');
 		$this->document->addScript('view/javascript/summernote/opencart.js');
 
 		$this->load->language('marketing/contact');
@@ -42,6 +44,8 @@ class ControllerMarketingContact extends Controller {
 		$data['button_cancel'] = $this->language->get('button_cancel');
 
 		$data['token'] = $this->session->data['token'];
+
+		$data['lang'] = $this->language->get('summernote');
 
 		$data['breadcrumbs'] = array();
 

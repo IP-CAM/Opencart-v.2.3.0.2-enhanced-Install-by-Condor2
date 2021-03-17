@@ -2,22 +2,23 @@ $(document).ready(function() {
 	// Override summernotes image manager
 	$('.summernote').each(function() {
 		var element = this;
-		
-		if ($(this).attr('data-lang')) {
-			$('head').append('<script src="view/javascript/summernote/lang/summernote-' + $(this).attr('data-lang') + '.js"></script>');
+		var lang = $(element).data('lang');
+
+		if (typeof(lang) == 'undefined') {
+			lang = 'en-US';
 		}
 
 		$(element).summernote({
-			lang: $(this).attr('data-lang'),
 			disableDragAndDrop: true,
 			height: 300,
+			lang: lang,
 			emptyPara: '',
 			codemirror: { // codemirror options
 				mode: 'text/html',
 				htmlMode: true,
 				lineNumbers: true,
 				theme: 'monokai'
-			},			
+			},
 			fontsize: ['8', '9', '10', '11', '12', '14', '16', '18', '20', '24', '30', '36', '48' , '64'],
 			toolbar: [
 				['style', ['style']],
