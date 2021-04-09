@@ -12,9 +12,13 @@ class Redis {
 	}
 
 	public function get($key) {
-		$data = $this->cache->get(CACHE_PREFIX . $key);
 
-		return json_decode($data, true);
+        if ($this->cache->exists(CACHE_PREFIX . $key)) {
+			$data = $this->cache->get(CACHE_PREFIX . $key);
+			return json_decode($data, true);
+		}
+
+		return false;
 	}
 
 	public function set($key, $value, $expire = '') {
