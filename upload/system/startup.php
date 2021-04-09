@@ -7,25 +7,6 @@ error_reporting(E_ALL);
  	exit('PHP7.3+ Required'); 
  }
 
-// Magic Quotes Fix
-if (ini_get('magic_quotes_gpc')) {
-	function clean($data) {
-   		if (is_array($data)) {
-  			foreach ($data as $key => $value) {
-    			$data[clean($key)] = clean($value);
-  			}
-		} else {
-  			$data = stripslashes($data);
-		}
-
-		return $data;
-	}
-
-	$_GET = clean($_GET);
-	$_POST = clean($_POST);
-	$_COOKIE = clean($_COOKIE);
-}
-
 if (!ini_get('date.timezone')) {
 	date_default_timezone_set('UTC');
 }
@@ -62,6 +43,13 @@ if ((isset($_SERVER['HTTPS']) && (($_SERVER['HTTPS'] == 'on') || ($_SERVER['HTTP
 	$_SERVER['HTTPS'] = true;
 } else {
 	$_SERVER['HTTPS'] = false;
+}
+
+// Check IP if forwarded IP
+if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+	$_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_X_FORWARDED_FOR'];
+} elseif(!empty($_SERVER['HTTP_CLIENT_IP'])) {
+	$_SERVER['REMOTE_ADDR'] = $_SERVER['HTTP_CLIENT_IP'];
 }
 
 // Modification Override
