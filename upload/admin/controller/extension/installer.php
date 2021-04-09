@@ -711,11 +711,11 @@ class ControllerExtensionInstaller extends Controller {
 				if (substr($result['path'], 0, 5) == 'image') {
 					$source = DIR_IMAGE . substr($result['path'], 6);
 				}
-				
+
 				if (substr($result['path'], 0, 14) == 'system/library') {
 					$source = DIR_SYSTEM . 'library/' . substr($result['path'], 15);
 				}
-				
+
 				if (is_file($source)) {
 					unlink($source);
 				}
@@ -744,10 +744,10 @@ class ControllerExtensionInstaller extends Controller {
 					rsort($files);
 
 					foreach ($files as $file) {
-						if (is_file($file)) {
-							unlink($file);
-						} elseif (is_dir($file)) {
-							rmdir($file);
+						if (is_dir($file)) {
+							if ($this->isDirEmpty($file)) {
+								rmdir($file);
+							}
 						}
 					}
 
@@ -756,7 +756,9 @@ class ControllerExtensionInstaller extends Controller {
 					}
 		
 					if (is_dir($source)) {
-						rmdir($source);
+						if ($this->isDirEmpty($source)) {
+							rmdir($source);
+						}
 					}
 				}
 
@@ -765,16 +767,30 @@ class ControllerExtensionInstaller extends Controller {
 
 			// Remove the install
 			$this->model_extension_extension->deleteExtensionInstall($extension_install_id);
-			
+
 			// Remove any xml modifications
 			$this->load->model('extension/modification');
 
 			$this->model_extension_modification->deleteModificationsByExtensionInstallId($extension_install_id);
-			
+
 			$json['success'] = $this->language->get('text_uninstall');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
+	}
+
+	private function isDirEmpty ($dir_name) {
+		if (!is_dir($dir_name)) {
+			return false;
+		}
+
+		foreach (scandir($dir_name) as $dir_file) {
+			if (!in_array($dir_file, array('.','..'))) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 }
