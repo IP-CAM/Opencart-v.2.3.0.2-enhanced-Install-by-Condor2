@@ -135,5 +135,5 @@ define('DIR_UPLOAD', DIR_STORAGE . 'upload/');<br>
 
 <b>OCMOD Installer</b>
 
-- Using phpMyAdmin create this two missing database tables: <b>oc_extension_install</b>, <b>oc_extension_path</b> (from install.sql).
+- Using phpMyAdmin create this two missing database tables: <b>oc_extension_install</b>, <b>oc_extension_path</b> (from opencart.sql).
 - Alter <b>oc_modification</b> table and add this field <b>extension_install_id int(11) NOT NULL,</b> after <b>modification_id</b>
