@@ -132,3 +132,8 @@ define('DIR_LOGS', DIR_STORAGE . 'logs/');<br>
 define('DIR_MODIFICATION', DIR_STORAGE . 'modification/');<br>
 define('DIR_SESSION', DIR_STORAGE . 'session/');<br>
 define('DIR_UPLOAD', DIR_STORAGE . 'upload/');<br>
+
+<b>OCMOD Installer</b>
+
+- Using phpMyAdmin create this two missing database tables: <b>oc_extension_install</b>, <b>oc_extension_path</b> (from install.sql).
+- Alter <b>oc_modification</b> table and add this field <b>extension_install_id int(11) NOT NULL,</b> after <b>modification_id</b>
