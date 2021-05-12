@@ -137,3 +137,11 @@ define('DIR_UPLOAD', DIR_STORAGE . 'upload/');<br>
 
 - Using phpMyAdmin create this two missing database tables: <b>oc_extension_install</b>, <b>oc_extension_path</b> (from opencart.sql).
 - Alter <b>oc_modification</b> table and add this field <b>extension_install_id int(11) NOT NULL,</b> after <b>modification_id</b>
+
+<b>Database</b>
+ - Using phpMyAdmin run this SQL command to patch the database:
+ 
+INSERT INTO `oc_setting` (`store_id`, `code`, `key`, `value`, `serialized`) VALUES<br>
+(0, 'config', 'config_timezone', 'UTC', 0),<br>
+(0, 'config', 'config_currency_engine', 'ecb', 0),<br>
+(0, 'ecb', 'ecb_status', '1', 0);<br>
