@@ -2,16 +2,17 @@ $(document).ready(function() {
 	// Override summernotes image manager
 	$('.summernote').each(function() {
 		var element = this;
+
 		var lang = $(element).data('lang');
 
 		if (typeof(lang) == 'undefined') {
-			lang = 'en-US';
+			lang = 'en';
 		}
 
 		$(element).summernote({
+			lang: lang,
 			disableDragAndDrop: true,
 			height: 300,
-			lang: lang,
 			emptyPara: '',
 			codemirror: { // codemirror options
 				mode: 'text/html',
@@ -19,7 +20,7 @@ $(document).ready(function() {
 				lineNumbers: true,
 				theme: 'monokai'
 			},
-			fontsize: ['8', '9', '10', '11', '12', '14', '16', '18', '20', '24', '30', '36', '48' , '64'],
+			fontSizes: ['8', '9', '10', '11', '12', '14', '16', '18', '20', '24', '30', '36', '48' , '64'],
 			toolbar: [
 				['style', ['style']],
 				['font', ['bold', 'underline', 'clear']],
@@ -32,7 +33,7 @@ $(document).ready(function() {
 				['view', ['fullscreen', 'codeview', 'help']]
 			],
 			popover: {
-           		image: [
+				image: [
 					['custom', ['imageAttributes']],
 					['resize', ['resizeFull', 'resizeHalf', 'resizeQuarter', 'resizeNone']],
 					['float', ['floatLeft', 'floatRight', 'floatNone']],
@@ -74,11 +75,11 @@ $(document).ready(function() {
 										e.preventDefault();
 
 										$(element).summernote('insertImage', $(this).attr('href'));
-																	
+
 										$('#modal-image').modal('hide');
 									});
 								}
-							});						
+							});
 						}
 					});
 
