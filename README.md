@@ -27,7 +27,6 @@ OpenCart is a free open source ecommerce platform for online merchants. OpenCart
 
 ## Features ##
 - Option to show and hide/reveal password. Code used from <a href="https://github.com/opencartbrasil/opencartbrasil">Opencart Brasil</a>
-- Ocmod installer was changed like in 3.0.x.x but with upload restrictions removed. PHP and SQL functions was added from this <a href="https://www.opencart.com/index.php?route=marketplace/extension/info&extension_id=31227">extension</a>
 
 ## Compatibility
 - PHP 7.3 and above
@@ -132,11 +131,6 @@ define('DIR_LOGS', DIR_STORAGE . 'logs/');<br>
 define('DIR_MODIFICATION', DIR_STORAGE . 'modification/');<br>
 define('DIR_SESSION', DIR_STORAGE . 'session/');<br>
 define('DIR_UPLOAD', DIR_STORAGE . 'upload/');<br>
-
-<b>OCMOD Installer</b>
-
-- Using phpMyAdmin create this two missing database tables: <b>oc_extension_install</b>, <b>oc_extension_path</b> (from opencart.sql).
-- Alter <b>oc_modification</b> table and add this field <b>extension_install_id int(11) NOT NULL,</b> after <b>modification_id</b>
 
 <b>Database</b>
  - Using phpMyAdmin run this SQL command to patch the database:
