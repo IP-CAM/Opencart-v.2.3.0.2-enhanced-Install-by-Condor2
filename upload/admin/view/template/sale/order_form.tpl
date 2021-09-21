@@ -303,8 +303,8 @@
                     <tr>
                       <td class="text-center" colspan="6"><?php echo $text_no_results; ?></td>
                     </tr>
+                    <?php } ?>
                   </tbody>
-                  <?php } ?>
                 </table>
               </div>
               <ul class="nav nav-tabs nav-justified">
